@@ -1,6 +1,11 @@
 # Microservice-Kubernetes
 Kubernetes to deploy a Microservice architecture. I'll deploy, manage and monitor a live Kubernetes cluster.
 
+## Technologies: Event Driven Arcitecture
+- Java
+- ActiveMQ
+- Angular(Javascript Framework)
+
 ## Install Kubernetes
 - Go to this url and follow the installation instruction: https://kubernetes.io/docs/tasks/tools/install-minikube/
 
