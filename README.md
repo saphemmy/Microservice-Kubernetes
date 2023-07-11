@@ -48,3 +48,4 @@ export MINIKUBE_ACTIVE_DOCKERD="minikube"
 
 - RUN `kubectl -t exec webapp sh` 
 
+- RUN `kubectl describe service fleetman-webapp` OR `kubectl describe svc fleetman-webapp`
