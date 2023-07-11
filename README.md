@@ -38,14 +38,22 @@ export MINIKUBE_ACTIVE_DOCKERD="minikube"
 
 
 ## Get the IP of the Kubernetes Instance
-- Locally run `minikube ip`
+Locally run to get the Minikube Address(K8)
+- `minikube ip`
 
-## Check the Pod detail: podName
-- RUN `kubectl describe pod webapp`
+## Check the Pod detail: podName RUN:
+- `kubectl describe pod webapp`
 
 ## Execute a command on a pod: kubectl exec podName commandName
-- RUN `kubectl exec webapp ls`
+- `kubectl exec webapp ls`
 
-- RUN `kubectl -t exec webapp sh` 
+- `kubectl -t exec webapp sh` 
 
-- RUN `kubectl describe service fleetman-webapp` OR `kubectl describe svc fleetman-webapp`
+### RUN: Shows services within K8
+- `kubectl describe service fleetman-webapp`
+- `kubectl describe svc fleetman-webapp` 
+### RUN: Show pods with K8 Cluster
+- `kubectl get po`
+- `kubectl get pods`
+- `kubectl get po --show-labels`
+- `kubectl get po --show-labels -1 release=0` - Filtering by release
