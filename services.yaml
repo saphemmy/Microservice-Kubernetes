@@ -59,3 +59,34 @@ spec:
   # Long-live entities as well UNLIKE pods that come and go
   # in prod use LoadBalancer/Ingress
   type: NodePort
+
+---
+
+# This allows enable REST_API services
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleetman-position-tracker
+
+spec:
+  selector:
+  # Loadbalancer traffic across Pods matching
+  # this defines which pods are going to be represented by this Service
+  # The service becomes a network endpoint for either other services
+  # or maybe external users
+
+  # Can be given any name e.g: mylabelname
+    app: position-tracker
+
+  ports:
+    - name: http
+      # Accept traffic sent to port 80 
+      # and Forward traffice to port 8080
+      port: 8080
+      nodePort: 30020 # targetPort is Only for NodePort minimum 30000 to avoid clases of ports
+
+  # Only supported by a few Cloud providers(NodePort, ClusterIP e.g microservies, LoadBalancer)
+  # This will give the service a stable IP address and 
+  # Long-live entities as well UNLIKE pods that come and go
+  # in prod use LoadBalancer/Ingress
+  type: NodePort
