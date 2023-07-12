@@ -12,7 +12,6 @@ spec:
 
   # Can be given any name e.g: mylabelname
     app: webapp
-    release: "0"
 
   ports:
     - name: http
