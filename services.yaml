@@ -83,7 +83,7 @@ spec:
       # Accept traffic sent to port 80 
       # and Forward traffice to port 8080
       port: 8080
-      nodePort: 30020 # targetPort is Only for NodePort minimum 30000 to avoid clases of ports
+      # nodePort: 30020 # targetPort is Only for NodePort minimum 30000 to avoid clases of ports
 
   # Only supported by a few Cloud providers(NodePort, ClusterIP e.g microservies, LoadBalancer)
   # This will give the service a stable IP address and 
