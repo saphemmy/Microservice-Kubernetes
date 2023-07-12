@@ -8,7 +8,7 @@ metadata:
 spec:
   # modify replicas according to demand/desire
   replicas: 2
-  minReadySeconds: 30 # This ensures a particular microservice is always available
+  # minReadySeconds: 30 # This ensures a particular microservice is always available
   
   selector:
     matchLabels:
@@ -21,4 +21,4 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: richardchesterwood/k8s-fleetman-webapp-angular:release0
+        image: richardchesterwood/k8s-fleetman-webapp-angular:release0-5
