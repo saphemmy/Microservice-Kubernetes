@@ -20,6 +20,9 @@ spec:
       port: 8161
       nodePort: 30010 # targetPort is Only for NodePort minimum 30000 to avoid clases of ports
 
+    - name: endpoint
+      port: 61616
+
   # Only supported by a few Cloud providers(NodePort, ClusterIP e.g microservies, LoadBalancer)
   # This will give the service a stable IP address and 
   # Long-live entities as well UNLIKE pods that come and go
