@@ -5,6 +5,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: mongo-pvc
 spec:
+  storageClassName: mylocalstorage # What type of storage I want
   resources:
     requests:
       storage: 8Gi # Find 8-gigabytes of starage
@@ -19,6 +20,7 @@ kind: PersistentVolume
 metadata:
   name: local-storage
 spec:
+  storageClassName: mylocalstorage
   hostPath:
     path: "/mnt/some_new/directorystructure"
     type: DirectoryOrCreate
