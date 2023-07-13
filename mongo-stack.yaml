@@ -2,18 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb
-  labels:
-    app: mongodb
-    
 spec:
-  # modify replicas according to demand/desire
-  replicas: 1
-  # minReadySeconds: 30 # This ensures a particular microservice is always available
-  
   selector:
     matchLabels:
       app: mongodb
-
+  replicas: 1
   template: # template for the pods
     metadata:
       labels:
@@ -22,16 +15,19 @@ spec:
       containers:
       - name: mongodb
         image: mongo:3.6.5-jessie
-        # resources:
-        #   limits:
-        #     cpu: "0.5"
-        #     memory: "512Mi"
-        #   requests:
-        #     cpu: "0.1"
-        #     memory: "256Mi"
 
+        volumeMounts:
+          - name: mongo-persistent-storage
+            mountPath: /data/db
+            
+      volumes:
+        - name: mongo-persistent-storage
+          # pointer to the configuration of How we want the mount to be implemented
+          persistentVolumeClaim:
+            claimName: mongo-pvc # Configuration bLock somewhere else
 
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
