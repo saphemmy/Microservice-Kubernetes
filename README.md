@@ -6,7 +6,7 @@ Kubernetes to deploy a Microservice architecture. I'll deploy, manage and monito
 - ActiveMQ
 - Angular(Javascript Framework)
 
-## Install Kubernetes
+## Install Kubernetes for Local testing Purposes
 - Go to this url and follow the installation instruction: https://kubernetes.io/docs/tasks/tools/install-minikube/
 
 - After Installation run the command to check if it's installed: `minikube` on the terminal
