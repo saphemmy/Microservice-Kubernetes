@@ -5,7 +5,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: mongo-pvc
 spec:
-  storageClassName: mylocalstorage # What type of storage I want
+  storageClassName: cloud-ssd #mylocalstorage # What type of storage I want
   resources:
     requests:
       storage: 8Gi # Find 8-gigabytes of starage
@@ -15,21 +15,23 @@ spec:
 
 ---
 # How I want it implemented
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: local-storage
-spec:
-  storageClassName: mylocalstorage
-  hostPath:
-    path: "/mnt/some_new/directorystructure"
-    type: DirectoryOrCreate
+# Local Storage
 
-  capacity:
-    storage: 8Gi
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   name: local-storage
+# spec:
+#   storageClassName: mylocalstorage
+#   hostPath:
+#     path: "/mnt/some_new/directorystructure"
+#     type: DirectoryOrCreate
+
+#   capacity:
+    # storage: 8Gi
   # volumeMode: Filesystem
-  accessModes:
-    - ReadWriteOnce # Supported by AWS
+  # accessModes:
+    # - ReadWriteOnce # Supported by AWS
   # persistentVolumeReclaimPolicy: Recycle
   # storageClassName: slow
   # mountOptions:
@@ -38,3 +40,17 @@ spec:
   # nfs:
   #   path: /tmp
   #   server: 172.17.0.2
+
+
+apiVersion: storage.k8.io/vi
+kind: storageClass
+metadata:
+  name: cloud-ssd
+provisioner: kubernetes.io/aws-abs
+parameters:
+  type: gp2 # I could choose the Zone but will let the cluster choose it's Zone
+# reclaimPolicy: Retain # Delete
+# allowVolumeExpansion: true
+# mountOptions:
+#   - debug
+# volumeBindingMode: Immediate

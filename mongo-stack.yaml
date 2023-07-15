@@ -18,7 +18,7 @@ spec:
 
         volumeMounts:
           - name: mongo-persistent-storage
-            mountPath: /data/db
+            mountPath: /data/db # Folder with a Container
             
       volumes:
         - name: mongo-persistent-storage
