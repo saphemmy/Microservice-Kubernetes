@@ -123,7 +123,7 @@ metadata:
     
 spec:
   # modify replicas according to demand/desire
-  replicas: 1
+  replicas: 2
   # minReadySeconds: 30 # This ensures a particular microservice is always available
   
   selector:
