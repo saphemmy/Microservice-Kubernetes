@@ -56,4 +56,9 @@ Locally run to get the Minikube Address(K8)
 - `kubectl get po`
 - `kubectl get pods`
 - `kubectl get po --show-labels`
-- `kubectl get po --show-labels -1 release=0` - Filtering by release
+### Filtering by release
+- `kubectl get po --show-labels -1 release=0` - 
+
+### NOTE:
+- In a Cluster each of the Nodes would have been given a security group
+- Security Group: is really a firewall. It's Configuration in AWS for any EC2 Instance I can limit the incoming traffic that Node to a specified range of port.
