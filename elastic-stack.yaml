@@ -52,7 +52,7 @@ roleRef:
 ---
 
 apiVersion: apps/v1
-kind: DaemonSet
+kind: DaemonSet # Get a pod on every Node
 metadata:
   name: fluentd-es-v2.2.0
   namespace: kube-system
