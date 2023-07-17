@@ -5,7 +5,7 @@ metadata:
 ---
 # Source: kube-prometheus-stack/charts/grafana/templates/serviceaccount.yaml
 apiVersion: v1
-kind: ServiceAcapiVersion: v1
+kind: ServiceAccount
 kind: Namespace
 metadata:
   name: monitoring
