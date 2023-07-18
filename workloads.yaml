@@ -108,6 +108,10 @@ spec:
       containers:
       - name: api-gateway
         image: richardchesterwood/k8s-fleetman-api-gateway:release2
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080 # Default time 10secs
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
