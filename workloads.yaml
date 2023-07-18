@@ -26,6 +26,9 @@ spec:
           requests:
             memory: 300Mi # 300Megabytes
             cpu: 100m #100milli-cores to give clarity to scheduler
+          limits:
+            memory: 300Mi
+            cpu: 100m
 
 ---
 
