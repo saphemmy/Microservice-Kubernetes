@@ -22,6 +22,10 @@ spec:
       containers:
       - name: queue
         image: richardchesterwood/k8s-fleetman-queue:release2
+        resources:
+          requests:
+            memory: 300Mi # 300Megabytes
+            cpu: 100m #100milli-cores to give clarity to scheduler
 
 ---
 
