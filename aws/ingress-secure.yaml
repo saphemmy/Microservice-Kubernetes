@@ -1,0 +1,24 @@
+# For more docs: kubernetes.github.io/ingress-nginx/examples
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: secure-routing
+  annotations:
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: mycredentials
+    nginx.ingress.kubernetes.io/auth-realm: "Get lost unless you have a password"
+  labels:
+    name: secure-routing
+spec:
+  rules:
+  - host: queue.fleetman.dev # Set this up in nano /etc/hosts
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: fleetman-queue # get this from `kubectl get svc` and it's PORT
+            port: 
+              number: 8161  # When done: `kubectl get ingress`
+        
