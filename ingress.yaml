@@ -1,3 +1,4 @@
+# For more docs: kubernetes.github.io/ingress-nginx/examples
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -9,9 +10,21 @@ spec:
   - host: fleetman.dev # Set this up in nano /etc/hosts
     http:
       paths:
-      - path: "/"
+      - pathType: Prefix
+        path: "/"
         backend:
           service:
             name: fleetman-wepapp # get this from `kubectl get svc` and it's PORT
             port: 
               number: 80  # When done: `kubectl get ingress`
+  - host: queue.fleetman.dev # Set this up in nano /etc/hosts
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: fleetman-queue # get this from `kubectl get svc` and it's PORT
+            port: 
+              number: 8161  # When done: `kubectl get ingress`
+        
