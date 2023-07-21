@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: basic-routing
+  labels:
+    name: basic-routing
+spec:
+  rules:
+  - host: fleetman.dev # Set this up in nano /etc/hosts
+    http:
+      paths:
+      - path: "/"
+        backend:
+          service:
+            name: fleetman-wepapp # get this from `kubectl get svc` and it's PORT
+            port: 
+              number: 80  # When done: `kubectl get ingress`
