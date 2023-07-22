@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-configuration
+  namespace: ingress-nginx
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+data:
+  use-proxy-protocol: "true"
+  # To force all traffic to https
+  force-ssl-redirect: "false"
+  use-forwarded-headers: "true"
+  http-snippet: |
+    server {
+      listen 8080 proxy_protocol;
+      server_token off;
+      return 301 https://$host$request;
+    }
