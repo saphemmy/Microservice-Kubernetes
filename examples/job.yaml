@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: testing-job
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+      - name: long-job
+        image: python
+        command: ["python"]
+        args: ["-c", "import time; print('starting'); time.sleep(30); print('done')"]
+        # image: perl
+        # command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+      restartPolicy: Never
