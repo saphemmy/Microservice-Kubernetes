@@ -62,3 +62,18 @@ Locally run to get the Minikube Address(K8)
 ### NOTE:
 - In a Cluster each of the Nodes would have been given a security group
 - Security Group: is really a firewall. It's Configuration in AWS for any EC2 Instance I can limit the incoming traffic that Node to a specified range of port.
+
+## Helm Charts | Package manager for K8
+
+- To install Helm: 
+Go to [Helm](https://helm.sh/docs/intro/quickstart/ "Helm Docs") 
+```
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+sudo apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+```
+
+### To Install the ELK Stack using Helm chart:
+Go to [ELK Stack using Prometheus, Fluentd/LogStash & Grafana](github.com/grafana/helm-charts/blob/main/charts/grafana/README.md)
