@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    environment {
+        // Sample of what must be set for environment variables
+        // ORGANIZATION_NAME
+        // MY_REGISTRY_USERNAME ()
+
+        SERVICE_NAME = "fleetman-api-gateway"
+        REPOSITORY_TAG = "${MY_REGISTRY_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}"
+    }
+
+    stages {
+        stage('Preparation') {
+            steps {
+                cleanWs()
+                git credentialsId: 'Github', url: "https:githubs.com/${ORGANIZATION_NAME}/${SERVICE_NAME}"
+            }
+        }
+
+        stage('Builds') {
+            steps {
+                sh ''' mvn clean package'''
+            }
+        }
+
+        // stage('Automated Testing') {
+        //     steps {
+
+        //     }
+        // }
+
+        stage('Deply to Cluster') {
+            steps {
+                sh 'envsubst < ${WORKSPACE}/deploy.yaml | kubectl appy -f -'
+            }
+        }
+    }
+}
