@@ -76,4 +76,4 @@ sudo apt-get install helm
 ```
 
 ### To Install the ELK Stack using Helm chart:
-Go to [ELK Stack using Prometheus, Fluentd/LogStash & Grafana](github.com/grafana/helm-charts/blob/main/charts/grafana/README.md)
+- Go to [ELK Stack using Prometheus, Fluentd/LogStash & Grafana](github.com/grafana/helm-charts/blob/main/charts/grafana/README.md)
