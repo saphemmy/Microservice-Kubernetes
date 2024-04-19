@@ -16,13 +16,6 @@ Kubernetes to deploy a Microservice architecture. I'll deploy, manage and monito
 ## Test Minikube environment variables
 - RUN: `minkube docker-env`
 
-```
-export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://192.168.49.2:2376" 
-export DOCKER_CERT_PATH="/home/foldername/.minikube/certs"
-export MINIKUBE_ACTIVE_DOCKERD="minikube"
-```
-
 ## To point your shell to minikube's docker-daemon:
 - RUN: `eval $(minikube -p minikube docker-env)`
 
